@@ -4,13 +4,13 @@
     --primary-bg: #f5e6d3;
     --secondary-bg: #ede2d0;
     --card-bg: rgba(237, 226, 208, 0.8);
-    --accent-color: #3a3a3a;
-    --accent-secondary: #4d4d4d;
-    --text-primary: #3a3a3a;
+    --accent-color: #2c3e50;
+    --accent-secondary: #34495e;
+    --text-primary: #1a1a1a;
     --text-secondary: #555555;
-    --gradient-1: linear-gradient(135deg, #3a3a3a 0%, #4d4d4d 100%);
-    --gradient-2: linear-gradient(135deg, #3a3a3a 0%, #4d4d4d 100%);
-    --gradient-3: linear-gradient(135deg, #3d5a73 0%, #3a3a3a 100%);
+    --gradient-1: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --gradient-2: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --gradient-3: linear-gradient(135deg, #3d5a73 0%, #2c3e50 100%);
 }
 
 * {
@@ -105,12 +105,12 @@ body::after {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(245, 230, 211, 0.98);
+    background: #1a1a1a;
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
-    box-shadow: 0 4px 30px rgba(44, 62, 80, 0.05);
+    border-bottom: 1px solid rgba(245, 230, 211, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .nav-container {
@@ -125,7 +125,7 @@ body::after {
 .nav-logo h2 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #3a3a3a;
+    color: #f5e6d3;
     letter-spacing: 0;
 }
 
@@ -137,7 +137,7 @@ body::after {
 }
 
 .nav-link {
-    color: #8b7355;
+    color: #f5e6d3;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -152,13 +152,13 @@ body::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: #8b7355;
+    background: #f5e6d3;
     transition: width 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: #8b7355;
+    color: #f5e6d3;
 }
 
 .nav-link:hover::after,
@@ -174,7 +174,7 @@ body::after {
 }
 
 .social-nav-link {
-    color: #3a3a3a;
+    color: #2c3e50;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -253,14 +253,14 @@ body::after {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    color: #3a3a3a;
+    color: #2c3e50;
     line-height: 1.1;
     letter-spacing: -1px;
 }
 
 .hero-subtitle {
     font-size: 1.4rem;
-    color: #666666;
+    color: #5a6c7d;
     margin-bottom: 1.5rem;
     font-weight: 500;
     line-height: 1.4;
@@ -268,7 +268,7 @@ body::after {
 
 .hero-description {
     font-size: 1.05rem;
-    color: #7a7a7a;
+    color: #6b7c8d;
     margin-bottom: 2.5rem;
     line-height: 1.7;
     max-width: 540px;
@@ -292,25 +292,25 @@ body::after {
 }
 
 .btn-primary {
-    background: #3a3a3a;
+    background: #2c3e50;
     color: white;
     box-shadow: 0 4px 12px rgba(44, 62, 80, 0.25);
 }
 
 .btn-primary:hover {
-    background: #4d4d4d;
+    background: #34495e;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(44, 62, 80, 0.35);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #3a3a3a;
-    border: 2px solid #3a3a3a;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
 }
 
 .btn-secondary:hover {
-    background: #3a3a3a;
+    background: #2c3e50;
     color: #f5e6d3;
 }
 
@@ -328,14 +328,14 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3a3a3a;
+    color: #2c3e50;
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background: #3a3a3a;
-    border-color: #3a3a3a;
+    background: #2c3e50;
+    border-color: #2c3e50;
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
@@ -367,7 +367,7 @@ body::after {
     align-items: center;
     justify-content: center;
     background: #f9f9f9;
-}
+
     border: 3px solid rgba(255,255,255,0.04);
     display: flex;
     align-items: center;
