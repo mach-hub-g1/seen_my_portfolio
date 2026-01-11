@@ -223,8 +223,8 @@ body::after {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 0.8; }
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.6; }
 }
 
 .hero-container {
@@ -598,8 +598,9 @@ section {
     background: var(--accent-color);
     border-radius: 50%;
     border: 4px solid var(--primary-bg);
-    box-shadow: 0 0 15px var(--accent-color);
+    box-shadow: 0 0 0 0 var(--accent-color);
     z-index: 1;
+    animation: timelinePulse 2s infinite;
 }
 
 .timeline-title {
@@ -1084,3 +1085,5 @@ footer p {
 a, button, .card, .btn {
     transition: all 0.3s ease;
 }
+
+
