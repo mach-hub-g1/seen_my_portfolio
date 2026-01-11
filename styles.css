@@ -166,11 +166,6 @@ body::after {
     width: 100%;
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-
 /* Social Navigation */
 .social-nav {
     display: flex;
