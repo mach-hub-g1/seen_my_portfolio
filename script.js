@@ -243,173 +243,90 @@ window.addEventListener('scroll', () => {
 
 // Theme toggle is now handled by the enhanced version below
 
-// Preloader
+// Gate + lightning entry animation
 function createPreloader() {
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader';
-    preloader.innerHTML = `
-        <div class="preloader-content">
-            <div class="spinner"></div>
-            <p>Loading...</p>
-        </div>
+    const overlay = document.createElement('div');
+    overlay.className = 'gate-overlay';
+    overlay.innerHTML = `
+        <div class="gate gate-left"></div>
+        <div class="gate gate-right"></div>
+        <div class="gate-glow"></div>
+        <div class="lightning lightning-1"></div>
+        <div class="lightning lightning-2"></div>
+        <div class="lightning lightning-3"></div>
     `;
-    preloader.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0a0e27;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-    `;
-    
+
     const style = document.createElement('style');
     style.textContent = `
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(0, 217, 255, 0.2);
-            border-top: 4px solid #00d9ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
+        .gate-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.05), rgba(10, 14, 39, 0.95));
+            transition: opacity 0.5s ease;
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .gate-overlay.hide { opacity: 0; }
+        .gate {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f162f 0%, #1b2947 100%);
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
         }
-        
-        .preloader-content {
-            text-align: center;
+        .gate-left { left: 0; animation: gate-left-open 1.6s ease forwards 0.4s; }
+        .gate-right { right: 0; animation: gate-right-open 1.6s ease forwards 0.4s; }
+        @keyframes gate-left-open { to { transform: translateX(-105%); } }
+        @keyframes gate-right-open { to { transform: translateX(105%); } }
+        .gate-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 217, 255, 0.18), transparent 45%);
+            filter: blur(28px);
+            pointer-events: none;
+            opacity: 0.9;
+            animation: glow-fade 1.8s ease forwards;
         }
-        
-        .preloader-content p {
-            color: #00d9ff;
-            font-weight: 600;
+        @keyframes glow-fade { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 0; } }
+        .lightning {
+            position: absolute;
+            top: -10%;
+            width: 2px;
+            height: 120%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0, 217, 255, 0.9), rgba(255,255,255,0));
+            filter: blur(1px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .lightning-1 { left: 48%; animation: lightning 1.3s ease-in-out forwards 0.35s; }
+        .lightning-2 { left: 52%; animation: lightning 1.3s ease-in-out forwards 0.5s; }
+        .lightning-3 { left: 50%; animation: lightning 1.3s ease-in-out forwards 0.7s; }
+        @keyframes lightning {
+            0%, 100% { opacity: 0; transform: translateY(-10%) scaleY(1.2); filter: blur(6px); }
+            12% { opacity: 1; filter: blur(1px); }
+            20% { opacity: 0.4; }
+            30% { opacity: 1; transform: translateY(0) scaleY(1); }
+            45% { opacity: 0; }
         }
     `;
-    
+
     document.head.appendChild(style);
-    document.body.appendChild(preloader);
-    
+    document.body.appendChild(overlay);
+
     window.addEventListener('load', () => {
+        const totalDuration = 2000;
         setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.remove();
-            }, 500);
-        }, 1000);
+            overlay.classList.add('hide');
+            setTimeout(() => overlay.remove(), 500);
+        }, totalDuration);
     });
 }
 
-// Initialize preloader
+// Initialize gate animation
 createPreloader();
 
-// Create Space Particle Effect
-function createSpaceParticles() {
-    const particleCount = 100;
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'space-particles';
-    particleContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-    `;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'space-particle';
-        
-        const size = Math.random() * 3 + 1;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 10;
-        
-        particle.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: rgba(0, 217, 255, ${Math.random() * 0.5 + 0.3});
-            border-radius: 50%;
-            left: ${x}%;
-            top: ${y}%;
-            animation: float ${duration}s linear ${delay}s infinite;
-            box-shadow: 0 0 ${size * 2}px rgba(0, 217, 255, 0.5);
-        `;
-        
-        particleContainer.appendChild(particle);
-    }
-    
-    // Add shooting stars
-    for (let i = 0; i < 5; i++) {
-        const shootingStar = document.createElement('div');
-        shootingStar.className = 'shooting-star';
-        
-        const duration = Math.random() * 3 + 2;
-        const delay = Math.random() * 10;
-        const startY = Math.random() * 50;
-        
-        shootingStar.style.cssText = `
-            position: absolute;
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 217, 255, 0.8));
-            top: ${startY}%;
-            right: -100px;
-            animation: shoot ${duration}s linear ${delay}s infinite;
-            transform: rotate(-45deg);
-        `;
-        
-        particleContainer.appendChild(shootingStar);
-    }
-    
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(${Math.random() * 50 - 25}px);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes shoot {
-            0% {
-                right: -100px;
-                opacity: 1;
-            }
-            100% {
-                right: 100%;
-                opacity: 0;
-            }
-        }
-    `;
-    
-    document.head.appendChild(style);
-    document.body.appendChild(particleContainer);
-}
-
-// Initialize space particles
-createSpaceParticles();
+// Space particle effect removed for cleaner background
 
 // Profile image update functionality
 function initProfileImageUpdate() {
