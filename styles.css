@@ -4,13 +4,13 @@
     --primary-bg: #f5e6d3;
     --secondary-bg: #ede2d0;
     --card-bg: rgba(237, 226, 208, 0.8);
-    --accent-color: #2c3e50;
-    --accent-secondary: #34495e;
+    --accent-color: #1a1a1a;
+    --accent-secondary: #2d2d2d;
     --text-primary: #1a1a1a;
     --text-secondary: #555555;
-    --gradient-1: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    --gradient-2: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    --gradient-3: linear-gradient(135deg, #3d5a73 0%, #2c3e50 100%);
+    --gradient-1: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --gradient-2: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --gradient-3: linear-gradient(135deg, #3d5a73 0%, #1a1a1a 100%);
 }
 
 * {
@@ -125,7 +125,7 @@ body::after {
 .nav-logo h2 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     letter-spacing: 0;
 }
 
@@ -174,7 +174,7 @@ body::after {
 }
 
 .social-nav-link {
-    color: #2c3e50;
+    color: #1a1a1a;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -253,14 +253,14 @@ body::after {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #1a1a1a;
     line-height: 1.1;
     letter-spacing: -1px;
 }
 
 .hero-subtitle {
     font-size: 1.4rem;
-    color: #5a6c7d;
+    color: #4a4a4a;
     margin-bottom: 1.5rem;
     font-weight: 500;
     line-height: 1.4;
@@ -268,7 +268,7 @@ body::after {
 
 .hero-description {
     font-size: 1.05rem;
-    color: #6b7c8d;
+    color: #6a6a6a;
     margin-bottom: 2.5rem;
     line-height: 1.7;
     max-width: 540px;
@@ -292,25 +292,25 @@ body::after {
 }
 
 .btn-primary {
-    background: #2c3e50;
+    background: #1a1a1a;
     color: white;
     box-shadow: 0 4px 12px rgba(44, 62, 80, 0.25);
 }
 
 .btn-primary:hover {
-    background: #34495e;
+    background: #2d2d2d;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(44, 62, 80, 0.35);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #2c3e50;
-    border: 2px solid #2c3e50;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
 }
 
 .btn-secondary:hover {
-    background: #2c3e50;
+    background: #1a1a1a;
     color: #f5e6d3;
 }
 
@@ -328,14 +328,14 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #2c3e50;
+    color: #1a1a1a;
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background: #2c3e50;
-    border-color: #2c3e50;
+    background: #1a1a1a;
+    border-color: #1a1a1a;
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
