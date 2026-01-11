@@ -179,7 +179,20 @@ if (skillsSection) {
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
+        const originalText = counter.textContent.trim();
+        
+        // Skip animation for non-numeric values like "2nd Year"
+        if (!/^\d/.test(originalText)) {
+            return;
+        }
+        
+        const target = parseInt(originalText.replace(/\D/g, ''));
+        
+        // Skip if target is NaN
+        if (isNaN(target)) {
+            return;
+        }
+        
         const increment = target / 100;
         let current = 0;
         
@@ -190,9 +203,9 @@ function animateCounters() {
                 clearInterval(timer);
             }
             
-            if (counter.textContent.includes('+')) {
+            if (originalText.includes('+')) {
                 counter.textContent = Math.floor(current) + '+';
-            } else if (counter.textContent.includes('%')) {
+            } else if (originalText.includes('%')) {
                 counter.textContent = Math.floor(current) + '%';
             } else {
                 counter.textContent = Math.floor(current);
