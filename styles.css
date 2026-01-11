@@ -123,18 +123,19 @@ body::after {
 }
 
 .nav-logo h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     background: var(--gradient-2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-link {
