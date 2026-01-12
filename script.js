@@ -328,44 +328,8 @@ createPreloader();
 
 // Space particle effect removed for cleaner background
 
-// Profile image update functionality
-function initProfileImageUpdate() {
-    const profileImageWrapper = document.querySelector('.profile-image-wrapper');
-    const profileImg = document.getElementById('profile-img');
-    
-    if (profileImageWrapper && profileImg) {
-        profileImageWrapper.addEventListener('click', () => {
-            // Create file input
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = 'image/*';
-            fileInput.style.display = 'none';
-            
-            fileInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        profileImg.src = e.target.result;
-                        // Add animation class
-                        profileImg.classList.add('pulse-animation');
-                        setTimeout(() => {
-                            profileImg.classList.remove('pulse-animation');
-                        }, 2000);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-            
-            document.body.appendChild(fileInput);
-            fileInput.click();
-            document.body.removeChild(fileInput);
-        });
-    }
-}
-
-// Initialize profile image update
-initProfileImageUpdate();
+// Profile image update functionality removed
+// The profile image is now static and non-clickable
 
 // Enhanced contact details with click-to-copy functionality
 function initContactInteractions() {
