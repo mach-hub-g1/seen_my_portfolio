@@ -886,6 +886,7 @@ section {
     background: linear-gradient(145deg, rgba(237, 226, 208, 0.7), rgba(245, 230, 211, 0.9));
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 90px; /* keep anchor reveal visible below the fixed navbar on mobile */
 }
 
 .contact::before,
